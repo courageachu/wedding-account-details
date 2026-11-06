@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Wedding Gift Account</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #FAF5EC;
+    color: #704326;
+    text-align: center;
+    padding: 30px 15px;
+}
+
+.account-card {
+    background: white;
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 30px 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+h2 {
+    color: #762B3B;
+}
+
+.details {
+    margin: 20px 0;
+    line-height: 1.8;
+}
+
+.account-number {
+    font-size: 23px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+button {
+    background: #762B3B;
+    color: white;
+    border: none;
+    padding: 13px 25px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+button:hover {
+    background: #704326;
+}
+
+#message {
+    margin-top: 12px;
+    font-size: 13px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="account-card">
+
+<h2>With Love & Gratitude</h2>
+
+<p>Thank you for celebrating with us.</p>
+
+<div class="details">
+
+<p><strong>Account Name</strong><br>
+Awunghe Agbor</p>
+
+<p><strong>Bank</strong><br>
+GT BANK</p>
+
+<p><strong>Account Number</strong></p>
+
+<div class="account-number" id="accountNumber">
+0449687564
+</div>
+
+</div>
+
+<button onclick="copyAccount()">
+COPY ACCOUNT NUMBER
+</button>
+
+<p id="message"></p>
+
+</div>
+
+<script>
+
+function copyAccount() {
+
+    const accountNumber = document
+    .getElementById("accountNumber")
+    .innerText.trim();
+
+    navigator.clipboard.writeText(accountNumber)
+    .then(() => {
+        document.getElementById("message").innerText =
+        "Account number copied successfully!";
+    })
+    .catch(() => {
+        document.getElementById("message").innerText =
+        "Unable to copy. Please select and copy the number manually.";
+    });
+
+}
+
+</script>
+
+</body>
+</html>
