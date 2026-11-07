@@ -1,10 +1,11 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Wedding Gift Account</title>
+<title>Wedding Gift Accounts</title>
 
 <style>
 body {
@@ -12,14 +13,18 @@ body {
     background: #FAF5EC;
     color: #704326;
     text-align: center;
-    padding: 30px 15px;
+    padding: 20px;
+}
+
+.container {
+    max-width: 450px;
+    margin: 30px auto;
 }
 
 .account-card {
     background: white;
-    max-width: 400px;
-    margin: 40px auto;
-    padding: 30px 20px;
+    padding: 25px 20px;
+    margin: 20px 0;
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.08);
 }
@@ -28,47 +33,52 @@ h2 {
     color: #762B3B;
 }
 
-.details {
-    margin: 20px 0;
-    line-height: 1.8;
+h3 {
+    color: #762B3B;
 }
 
 .account-number {
-    font-size: 23px;
+    font-size: 22px;
     font-weight: bold;
     letter-spacing: 2px;
+    margin: 10px 0 15px;
 }
 
 button {
     background: #762B3B;
     color: white;
     border: none;
-    padding: 13px 25px;
+    padding: 12px 22px;
     border-radius: 6px;
     cursor: pointer;
-    font-size: 14px;
 }
 
 button:hover {
     background: #704326;
 }
 
-#message {
-    margin-top: 12px;
+.message {
     font-size: 13px;
+    margin-top: 10px;
 }
 </style>
 </head>
 
 <body>
 
+<div class="container">
+
+<h2>A Token of Love</h2>
+
+<p>Your presence is the greatest gift. 
+    However, for those who wish to bless us with a gift, 
+    kindly find the details below.</p>
+
+<!-- ACCOUNT ONE -->
+
 <div class="account-card">
 
-<h2>With Love & Gratitude</h2>
-
-<p>Thank you for celebrating with us.</p>
-
-<div class="details">
+<h3>Account 1</h3>
 
 <p><strong>Account Name</strong><br>
 Awunghe Agbor</p>
@@ -78,36 +88,63 @@ GT BANK</p>
 
 <p><strong>Account Number</strong></p>
 
-<div class="account-number" id="accountNumber">
+<div class="account-number" id="account1">
 0449687564
 </div>
 
-</div>
-
-<button onclick="copyAccount()">
+<button onclick="copyAccount('account1', 'message1')">
 COPY ACCOUNT NUMBER
 </button>
 
-<p id="message"></p>
+<p class="message" id="message1"></p>
+
+</div>
+
+
+<!-- ACCOUNT TWO -->
+
+<div class="account-card">
+
+<h3>Account 2</h3>
+
+<p><strong>Account Name</strong><br>
+Faith Okon</p>
+
+<p><strong>Bank</strong><br>
+GT BANK</p>
+
+<p><strong>Account Number</strong></p>
+
+<div class="account-number" id="account2">
+0729411098
+</div>
+
+<button onclick="copyAccount('account2', 'message2')">
+COPY ACCOUNT NUMBER
+</button>
+
+<p class="message" id="message2"></p>
+
+</div>
 
 </div>
 
 <script>
 
-function copyAccount() {
+function copyAccount(accountId, messageId) {
 
     const accountNumber = document
-    .getElementById("accountNumber")
+    .getElementById(accountId)
     .innerText.trim();
 
     navigator.clipboard.writeText(accountNumber)
     .then(() => {
-        document.getElementById("message").innerText =
+        document.getElementById(messageId).innerText =
         "Account number copied successfully!";
     })
     .catch(() => {
-        document.getElementById("message").innerText =
-        "Unable to copy. Please select and copy the number manually.";
+        document.getElementById(messageId).innerText =
+        "Unable to copy. Please copy the number manually.";
     });
 
 }
@@ -116,3 +153,4 @@ function copyAccount() {
 
 </body>
 </html>
+```
